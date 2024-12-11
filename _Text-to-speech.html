@@ -1,0 +1,21 @@
+<title></title>
+<h1>Text-to-Speech</h1>
+
+<p><textarea id="text-input" placeholder="Enter text here"></textarea><br />
+<br />
+<button onclick="speak()">Speak</button><script>
+    function speak() {
+      const text = document.getElementById('text-input').value;
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      // Customize voice (optional)
+      const voices = speechSynthesis.getVoices();
+      utterance.voice = voices[0]; // Select the first available voice
+
+      // Customize speech (optional)
+      utterance.rate = 1; // Adjust speaking rate (default: 1)
+      utterance.pitch = 1; // Adjust pitch (default: 1)
+
+      speechSynthesis.speak(utterance);
+    }
+  </script></p>
